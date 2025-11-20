@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Abuja — Place Page | Okeke Romanus</title>
+  <meta name="description" content="Abuja place page — facts, hero background on desktop, responsive images, weather and windchill demo.">
+  <meta name="author" content="Okeke Romanus">
+
+  <link rel="stylesheet" href="styles/place.css">
+  <script defer src="scripts/place.js"></script>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <h1 class="place-title">Abuja, Nigeria</h1>
+      <p class="place-subtitle">Capital City — Federal Capital Territory</p>
+    </div>
+  </header>
+
+  <main class="site-main" id="main" role="main">
+    <!-- HERO: mobile uses the <picture> with srcset; desktop uses background image in CSS -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <h2 id="hero-heading" class="visually-hidden">Scenic hero image for Abuja</h2>
+
+      <!-- Mobile-first image (browser chooses appropriate srcset). This is hidden on desktop via CSS. -->
+      <picture class="hero-picture">
+        <source srcset="/mnt/data/hero-small.webp 480w, /mnt/data/hero-large.webp 1200w" type="image/webp">
+        <img class="hero-inline"
+             src="place-lg-1160.webp."
+             alt="Scenic view near Abuja"
+             loading="lazy">
+      </picture>
+
+      <p class="hero-caption">Scenic nature view near Abuja</p>
+    </section>
+
+    <!-- Grid for cards -->
+    <div class="grid">
+      <aside class="card data-card" aria-labelledby="data-heading">
+        <h2 id="data-heading">Data</h2>
+        <dl>
+          <div class="row"><dt>Country:</dt><dd>Nigeria</dd></div>
+          <div class="row"><dt>City:</dt><dd>Abuja</dd></div>
+          <div class="row"><dt>Population:</dt><dd>~3.6 million (city)</dd></div>
+          <div class="row"><dt>Region:</dt><dd>Central (FCT)</dd></div>
+          <div class="row"><dt>Language:</dt><dd>English (official)</dd></div>
+          <div class="row"><dt>Time zone:</dt><dd>UTC +1</dd></div>
+        </dl>
+      </aside>
+
+      <!-- empty center column visually uses the hero background (see CSS) -->
+      <div class="hero-fill" aria-hidden="true"></div>
+
+      <section class="card weather-card" aria-labelledby="weather-heading">
+        <h2 id="weather-heading" class="weather-heading">Weather</h2>
+
+        <!-- Inline SVG icon for mobile (hidden on desktop) -->
+        <div class="weather-icon mobile-only" aria-hidden="true">
+          <svg width="64" height="64" viewBox="0 0 64 64" role="img" aria-hidden="true" focusable="false">
+            <g fill="none" fill-rule="evenodd">
+              <circle cx="20" cy="18" r="8" fill="#FFD54F"></circle>
+              <path d="M12 38c-1.1 0-2-.9-2-2 0-4.4 3.6-8 8-8 .6 0 1.2.1 1.8.2C22.6 25.1 28.3 22 34.8 22 43.6 22 51 29.4 51 38c0 6.1-4.9 11-11 11H18c-4.4 0-8-3.6-8-8 0-1.1.9-2 2-2z" fill="#90A4AE"></path>
+            </g>
+          </svg>
+        </div>
+
+        <div class="weather-values">
+          <p><strong>Temperature:</strong> <span id="temp">8</span> °C</p>
+          <p><strong>Wind speed:</strong> <span id="wind">12</span> km/h</p>
+          <p><strong>Windchill:</strong> <span id="windchill">—</span></p>
+        </div>
+
+        <ul class="weather-list" aria-hidden="false">
+          <li><strong>Condition:</strong> Partly cloudy</li>
+          <li><strong>Humidity:</strong> 68%</li>
+          <li><strong>Visibility:</strong> 10 km</li>
+          <li><strong>Sunrise:</strong> 06:20</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="currentYear"></span> — Okeke Romanus — Abuja, Nigeria</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
+  </footer>
+</body>
+</html>

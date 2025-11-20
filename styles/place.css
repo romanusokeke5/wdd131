@@ -1,0 +1,84 @@
+:root{
+  --bg: #fbfbfa;
+  --card: #ffffff;
+  --brand: #2b4e5a;
+  --accent: #b86b2b;
+  --muted: #5a5a5a;
+  --radius: 12px;
+  --max-w: 1200px;
+  --gap: 1rem;
+}
+
+/* base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:#111;
+  line-height:1.45;
+}
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
+
+/* header (over hero on desktop) */
+.site-header{ background:var(--card); border-bottom:1px solid rgba(0,0,0,0.04); text-align:center; padding:18px 12px; position:relative; z-index:10 }
+.header-inner{ max-width:var(--max-w); margin:0 auto; }
+.place-title{ margin:0; font-size:1.6rem; color:var(--brand); font-weight:700 }
+.place-subtitle{ margin:6px 0 0; color:var(--muted); font-size:0.95rem }
+
+/* main & hero */
+.site-main{ max-width:var(--max-w); margin:18px auto; padding:0 16px 40px; display:block; }
+.hero{ background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:0 8px 18px rgba(15,15,15,0.06); text-align:center; }
+.hero-picture{ display:block; }
+.hero-inline{ width:100%; height:auto; display:block; }
+.hero-caption{ color:var(--muted); padding:8px 12px 14px; margin:0; font-size:0.95rem }
+
+/* grid cards (mobile stack) */
+.grid{ display:grid; grid-template-columns:1fr; gap:var(--gap); margin-top:var(--gap) }
+.card{ background:var(--card); padding:14px; border-radius:var(--radius); box-shadow:0 8px 20px rgba(15,15,15,0.06) }
+
+/* data card rows */
+.data-card dl{ margin:0 }
+.data-card .row{ display:flex; justify-content:space-between; padding:10px 6px; border-bottom:1px solid rgba(0,0,0,0.04) }
+.data-card dt{ font-weight:600; color:var(--muted) }
+.data-card dd{ margin:0; color:#111 }
+
+/* weather */
+.weather-icon{ display:block; text-align:center; margin-bottom:10px }
+.mobile-only{ display:block }
+.weather-values p{ margin:6px 0 }
+.weather-list{ margin-top:10px; padding-left:1rem; color:var(--muted) }
+
+/* footer */
+.site-footer{ text-align:center; color:var(--muted); padding:18px 12px }
+
+/* DESKTOP layout: hero background + 3-column grid with cards overlaying hero */
+@media (min-width:900px){
+  /* hero becomes background image (large webp). header overlays hero */
+  .site-header{ position:absolute; left:0; right:0; top:40px; z-index:20; background:transparent }
+  .header-inner{ background: rgba(255,255,255,0.9); padding:18px; border-radius:10px; max-width:var(--max-w); margin:0 auto; box-shadow:0 8px 20px rgba(0,0,0,0.12) }
+
+  /* hide inline image (mobile) and use background on hero container */
+  .hero-inline{ display:none; }
+  .hero{
+    height:560px;
+    border-radius:0;
+    margin-bottom:0;
+    background-image: url("/mnt/data/hero-large.webp");
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+  }
+  .hero-caption{ position:absolute; left:50%; transform:translateX(-50%); bottom:22px; background:rgba(255,255,255,0.85); padding:8px 12px; border-radius:8px; color:var(--muted) }
+
+  /* grid: data left, hero visually center, weather right */
+  .grid{ display:grid; grid-template-columns: 320px 1fr 320px; gap:24px; max-width:var(--max-w); margin:-80px auto 0; padding:0 16px }
+  .hero-fill{ grid-column:2/3 } /* center column reserved visually for hero */
+  .data-card{ grid-column:1/2; margin-top:0 }
+  .weather-card{ grid-column:3/4; margin-top:0 }
+
+  .mobile-only{ display:none }
+
+  .weather-heading::after{ content: " ⛅"; font-size:1.1rem; margin-left:8px }
+}
