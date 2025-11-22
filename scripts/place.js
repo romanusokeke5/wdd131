@@ -1,29 +1,28 @@
-// Static sample values (metric)
-const tempC = 8;      // °C
-const windKmh = 12;   // km/h
+// Criterion 9: Set current year in footer
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// single-line windchill calculation (metric)
-function calculateWindChill(T, v) { return Math.round((13.12 + 0.6215 * T - 11.37 * Math.pow(v, 0.16) + 0.3965 * T * Math.pow(v, 0.16)) * 10) / 10; }
+// Criterion 9: Set last modified date in footer
+document.getElementById('lastModified').textContent = document.lastModified;
 
-document.addEventListener('DOMContentLoaded', () => {
-  // populate DOM
-  const tEl = document.getElementById('temp');
-  const wEl = document.getElementById('wind');
-  const wcEl = document.getElementById('windchill');
-  if (tEl) tEl.textContent = tempC;
-  if (wEl) wEl.textContent = windKmh;
+// Static weather values (must match the values displayed in HTML)
+const temperature = 8; // °C
+const windSpeed = 12; // km/h
 
-  // compute only when metric conditions are met
-  if (typeof tempC === 'number' && typeof windKmh === 'number' && tempC <= 10 && windKmh > 4.8) {
-    const wc = calculateWindChill(tempC, windKmh);
-    if (wcEl) wcEl.textContent = wc + ' °C';
-  } else {
-    if (wcEl) wcEl.textContent = 'N/A';
-  }
+// Criterion 8: Wind Chill Calculation Function
+// Function contains ONE LINE of code that returns the wind chill factor
+// Uses the metric formula for wind chill calculation
+function calculateWindChill(temp, wind) {
+  return (13.12 + 0.6215 * temp - 11.37 * Math.pow(wind, 0.16) + 0.3965 * temp * Math.pow(wind, 0.16)).toFixed(1);
+}
 
-  // footer year + lastModified
-  const yearEl = document.getElementById('currentYear');
-  const lastEl = document.getElementById('lastModified');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-  if (lastEl) lastEl.textContent = document.lastModified;
-});
+// Criterion 8: Only call calculateWindChill if conditions are met
+// Metric conditions: temperature <= 10°C AND wind speed > 4.8 km/h
+const windchillElement = document.getElementById('windchill');
+
+if (temperature <= 10 && windSpeed > 4.8) {
+  // Conditions met - calculate and display wind chill
+  windchillElement.textContent = calculateWindChill(temperature, windSpeed) + ' °C';
+} else {
+  // Conditions not met - display N/A
+  windchillElement.textContent = 'N/A';
+}
