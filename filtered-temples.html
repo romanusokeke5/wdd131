@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhanced Temple Album | Okeke Romanus</title>
+  <meta name="description" content="Explore temples of The Church of Jesus Christ of Latter-day Saints with interactive filtering options.">
+  <link rel="stylesheet" href="styles/filtered-temples.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <script defer src="scripts/filtered-temples.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Temple Album</h1>
+    <button id="menu" aria-label="Toggle navigation menu">&#9776;</button>
+    <nav class="navigation">
+      <a href="#" data-filter="home">Home</a>
+      <a href="#" data-filter="old">Old</a>
+      <a href="#" data-filter="new">New</a>
+      <a href="#" data-filter="large">Large</a>
+      <a href="#" data-filter="small">Small</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 id="filter-title">All Temples</h2>
+    <div id="temple-container" class="temple-gallery">
+      <!-- Temple cards will be dynamically generated here -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="currentyear"></span> | Okeke Romanus | Enugu, Nigeria</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
+  </footer>
+</body>
+</html>
