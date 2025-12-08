@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Discover | Cosmic Explorers</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+<header>
+  <h1 class="logo">🌌 Cosmic Explorers</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html" class="active">Discover</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<h2>Discover the Universe</h2>
+
+<label for="filter">Filter by Type:</label>
+<select id="filter">
+  <option value="all">All</option>
+  <option value="planet">Planets</option>
+  <option value="galaxy">Galaxies</option>
+</select>
+
+<div id="discoverGrid" class="grid"></div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Cosmic Explorers • <a href="references.html">References</a></p>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

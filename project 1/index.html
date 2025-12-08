@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Explorers | Home</title>
+  <meta name="description" content="Explore planets, galaxies, and cosmic wonders through an interactive space discovery experience.">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+<header>
+  <h1 class="logo">🌌 Cosmic Explorers</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section id="hero">
+  <h2 class="hero-title">Journey Beyond the Stars</h2>
+  <p class="hero-subtitle">Discover the mysteries of our universe — one cosmic wonder at a time.</p>
+  <img src="images/hero-800.jpg" alt="Galaxy" loading="eager">
+</section>
+
+<section>
+  <h2>Featured Cosmic Wonders</h2>
+  <p>Click the button to load live cosmic items dynamically.</p>
+  <button id="loadCosmos">Load Wonders</button>
+  <div id="cosmicContainer" class="grid"></div>
+</section>
+
+<section id="newsletter">
+  <h2>Join the Mission</h2>
+  <form id="joinForm" novalidate>
+    <label for="name">Name</label>
+    <input id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required>
+
+    <fieldset>
+      <legend>Receive Updates?</legend>
+      <label><input type="radio" name="updates" value="yes" id="uYes"> Yes</label>
+      <label><input type="radio" name="updates" value="no" id="uNo"> No</label>
+    </fieldset>
+
+    <button type="submit">Join</button>
+  </form>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Cosmic Explorers • <a href="references.html">References</a></p>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
